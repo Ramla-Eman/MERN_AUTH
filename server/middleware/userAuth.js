@@ -14,7 +14,7 @@ const userAuth = async (req, res, next) => {
     const tokendecode = jwt.verify(token, process.env.JWT_SECRET);
 
     if(tokendecode.id){
-        req.body.userId = tokendecode.id
+        req.userId = tokendecode.id
     }
     else{
         return res.json({
